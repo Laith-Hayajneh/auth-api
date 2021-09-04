@@ -39,7 +39,7 @@ authRouter.get('/users', bearerAuth, permissions('delete'), async (req, res, nex
   const userRecords = await users.findAll({});
   const list = userRecords.map(user => user.username);
   res.status(200).json(list);
-});
+}); 
 
 authRouter.get('/secret',  async (req, res, next) => {
   res.status(200).send('Welcome to the secret area')
