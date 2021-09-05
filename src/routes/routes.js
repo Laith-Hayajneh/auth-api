@@ -11,7 +11,7 @@ const permissions = require('../middleware/acl.js')
 authRouter.post('/signup', async (req, res, next) => {
   console.log(req.body,'boooody')
   try {
-    let userRecord = await req.body;
+    let userRecord = await users.create(req.body);
     console.log(userRecord,'reeeee55555555555555555e');
     const output = {
       user: userRecord,
@@ -39,7 +39,7 @@ authRouter.get('/users', bearerAuth, permissions('delete'), async (req, res, nex
   const userRecords = await users.findAll({});
   const list = userRecords.map(user => user.username);
   res.status(200).json(list);
-}); 
+});
 
 authRouter.get('/secret',  async (req, res, next) => {
   res.status(200).send('Welcome to the secret area')

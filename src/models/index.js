@@ -7,7 +7,7 @@ const foodModel = require('./food/model.js');
 const userModel = require('./users.js');
 const Collection = require('./data-collection.js');
 
-const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = process.env.DATABASE_URL || "postgres://xtixozee:7rn1Oc4cpvt0CATPH8qvBYqYHd0rD5n4@chunee.db.elephantsql.com/xtixozee";
 
 const DATABASE_CONFIG = {
   dialectOptions: {
